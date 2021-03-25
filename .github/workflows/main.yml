@@ -1,0 +1,25 @@
+name: CI-CD-Pipeline-to-AWS 
+env:
+  EB_PACKEGE_S3_BUCKET_NAME : "application-packege"
+  EB_APPLICATION_NAME       : "gatsby-starter"
+  EB_ENVIROMENT_NAME        : "gatsby.env"
+  DEPPLOY_PACKAGE           : "gatsby_app_${{ github.sha }}.zip"
+  AWS_REGION_NAME           : "us-east-1"
+ 
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+CI_Part:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Git clone our repo
+       uses: actions/checkout@v1
+       
+     - name: Create ZIP deployment package
+       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      
+      
