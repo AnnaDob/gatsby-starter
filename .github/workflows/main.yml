@@ -1,6 +1,6 @@
 name: CI-CD-Pipeline-to-AWS 
 env:
-  EB_PACKEGE_S3_BUCKET_NAME : "application-packege"
+  EB_PACKEGE_S3_BUCKET_NAME : "s3-bucket-app-files"
   EB_APPLICATION_NAME       : "gatsby-starter"
   EB_ENVIROMENT_NAME        : "gatsby.env"
   DEPPLOY_PACKAGE_NAME      : "gatsby_app_${{ github.sha }}.zip"
